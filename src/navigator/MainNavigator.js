@@ -4,6 +4,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import HomeScreen from '../screens/HomeScreen';
 import AtMuseumTabNav from './AtMuseumTabNav';
 import AtHomeTabNav from './AtHomeTabNav';
+import DetailScreen from '../screens/DetailScreen';
 
 const MainNavigator = () => {
   const Stack = createStackNavigator();
@@ -14,6 +15,10 @@ const MainNavigator = () => {
           name="Home"
           component={HomeScreen}
           options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Detail"
+          component={DetailScreen}
         />
         <Stack.Screen
           name="AtMuseum"
