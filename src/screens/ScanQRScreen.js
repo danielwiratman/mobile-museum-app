@@ -5,20 +5,17 @@ import {
   useCameraDevices,
   useFrameProcessor,
 } from 'react-native-vision-camera';
-import {
-  DBRConfig,
-  decode,
-  TextResult,
-} from 'vision-camera-dynamsoft-barcode-reader';
+import {decode} from 'vision-camera-dynamsoft-barcode-reader';
 import * as REA from 'react-native-reanimated';
 import {Svg, Rect} from 'react-native-svg';
+import {useIsFocused} from '@react-navigation/native';
 
 const ScanQRScreen = props => {
   const {navigation} = props;
   const [hasPermission, setHasPermission] = useState(false);
   const [barcodeResults, setBarcodeResults] = useState([]);
   const [barcodeText, setBarcodeText] = useState('');
-  const [isFocus, setIsFocus] = useState(false)
+  const isFocus = useIsFocused();
   const devices = useCameraDevices();
   const device = devices.back;
   const frameProcessor = useFrameProcessor(frame => {
@@ -43,7 +40,7 @@ const ScanQRScreen = props => {
       Left: 10,
       Right: 90,
       Top: 20,
-      Bottom: 65,
+      Bottom: 60,
       MeasuredByPercentage: 1,
       Name: 'Settings',
     };
@@ -67,10 +64,9 @@ const ScanQRScreen = props => {
       setHasPermission(status === 'authorized');
     })();
     navigation.addListener('focus', () => {
-      setBarcodeResults([])
-      setBarcodeText('')
-      setIsFocus(true)
-    })
+      setBarcodeResults([]);
+      setBarcodeText('');
+    });
   }, []);
 
   useEffect(() => {
@@ -83,9 +79,8 @@ const ScanQRScreen = props => {
   }, [barcodeResults]);
   useEffect(() => {
     console.log(barcodeText);
-    if (barcodeText !== ''){
+    if (barcodeText !== '') {
       navigation.navigate('Detail', {barcodeText});
-      setIsFocus(false)
     }
   }, [barcodeText]);
   return (
@@ -104,7 +99,7 @@ const ScanQRScreen = props => {
               x={0.1 * getFrameSize()[0]}
               y={0.2 * getFrameSize()[1]}
               width={0.8 * getFrameSize()[0]}
-              height={0.8 * getFrameSize()[0]}
+              height={0.4 * getFrameSize()[1]}
               strokeWidth="2"
               stroke="red"
             />
