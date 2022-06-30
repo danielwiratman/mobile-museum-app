@@ -6,7 +6,7 @@ import MainNavigator from './src/navigator/MainNavigator';
 const App = () => {
   return (
     <SafeAreaProvider>
-      <MainNavigator />
+      <MainNavigator   />
     </SafeAreaProvider>
   );
 };

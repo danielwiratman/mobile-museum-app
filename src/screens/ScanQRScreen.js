@@ -78,7 +78,7 @@ const ScanQRScreen = props => {
     }
   }, [barcodeResults]);
   useEffect(() => {
-    console.log(barcodeText);
+    // console.log(barcodeText);
     if (barcodeText !== '') {
       navigation.navigate('Detail', {barcodeText});
     }
