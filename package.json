@@ -22,6 +22,7 @@
     "react-native-screens": "^3.13.1",
     "react-native-svg": "^12.3.0",
     "react-native-vision-camera": "^2.13.5",
+    "realm": "^10.19.3",
     "vision-camera-dynamsoft-barcode-reader": "^0.4.3"
   },
   "devDependencies": {
