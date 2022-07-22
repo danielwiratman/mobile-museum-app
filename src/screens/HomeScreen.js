@@ -14,7 +14,7 @@ const HomeScreen = props => {
       style={styles.mainContainer}
       source={require('../../assets/images/homeBg.jpg')}>
         <View style={{marginBottom: 30, marginHorizontal:24}}>
-        <Text style={{fontSize: 40, fontWeight: 'bold', color: 'white'}}>Welcome to The Museum App</Text>
+        <Text style={{fontSize: 40, fontWeight: 'bold', color: 'white'}}>Selamat Datang Hot Reload</Text>
 
         </View>
       <TouchableOpacity
